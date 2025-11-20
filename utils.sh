@@ -127,7 +127,7 @@ set_prebuilts() {
 	local arch
 	arch=$(uname -m)
 	if [ "$arch" = aarch64 ]; then arch=arm64; elif [ "${arch:0:5}" = "armv7" ]; then arch=arm; fi
-	HTMLQ="${BIN_DIR}/htmlq/htmlq-${arch}"
+	HTMLQ="/root/.cargo/bin/htmlq"
 	AAPT2="${BIN_DIR}/aapt2/aapt2-${arch}"
 	TOML="${BIN_DIR}/toml/tq-${arch}"
 }
