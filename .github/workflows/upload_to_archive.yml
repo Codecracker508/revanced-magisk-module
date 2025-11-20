@@ -1,2 +1,7 @@
-- name: Upload files to an archive.org item
+- name: Upload folder to archive.org
   uses: palewire/internet-archive-upload@v1
+  with:
+    access-key: ${{ secrets.IA_ACCESS_KEY }}
+    secret-key: ${{ secrets.IA_SECRET_KEY }}
+    identifier: anilab-suresh
+    files: ./local-apks/
