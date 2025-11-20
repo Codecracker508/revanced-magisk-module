@@ -1,7 +1,20 @@
-- name: Upload folder to archive.org
-  uses: palewire/internet-archive-upload@v1
-  with:
-    access-key: ${{ secrets.IA_ACCESS_KEY }}
-    secret-key: ${{ secrets.IA_SECRET_KEY }}
-    identifier: anilab-suresh
-    files: ./local-apks/
+name: Upload to Archive.org
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Upload file to archive.org
+        uses: palewire/internet-archive-upload@v1
+        with:
+          access-key: ${{ secrets.IA_ACCESS_KEY }}
+          secret-key: ${{ secrets.IA_SECRET_KEY }}
+          identifier: anilab-suresh
+          files: local-apks/anilab.apk
