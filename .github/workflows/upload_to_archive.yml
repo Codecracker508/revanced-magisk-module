@@ -1,4 +1,4 @@
-name: Upload to Archive.org
+name: Upload APKs to Archive.org
 
 on:
   workflow_dispatch:
@@ -8,13 +8,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Upload file to archive.org
+      - name: Extract first APK filename as identifier
+        id: pkg
+        run: |
+          file=$(ls apks/*.apk | head -n 1)
+          name=$(basename "$file" .apk)
+          echo "pkg_name=$name" >> $GITHUB_OUTPUT
+
+      - name: Upload APKs
         uses: palewire/internet-archive-upload@v1
         with:
           access-key: ${{ secrets.IA_ACCESS_KEY }}
           secret-key: ${{ secrets.IA_SECRET_KEY }}
-          identifier: anilab-suresh
-          files: local-apks/anilab.apk
+          identifier: ${{ steps.pkg.outputs.pkg_name }}
+          files: apks/*.apk
