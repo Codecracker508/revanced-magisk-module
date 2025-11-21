@@ -1,49 +1,38 @@
-enable-magisk-update = true
-parallel-jobs = 1
-
-[Music]
-build-mode = "both"
-arch = "all"
-uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
-
-[YouTube]
-build-mode = "both"
-arch = "all"
-uptodown-dlurl = "https://youtube.en.uptodown.com/android"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
-
-[Instagram]
-enabled = true
-build-mode = "both"
-version = "latest"
-arch = "arm64-v8a"
-uptodown-dlurl = "https://instagram.en.uptodown.com/android"
-apkmirror-dlurl = ""
-included-patches = "'Hide ads' 'Hide suggested content' 'Sanitize sharing links' 'Disable signature check'"
-exclusive-patches = true
-
-[Crunchyroll]
-enabled = true
-build-mode = "both"
-version = "latest"
-arch = "all"
-uptodown-dlurl = "https://crunchyroll.en.uptodown.com/android"
-apkmirror-dlurl = ""
-
-#[Anilab]
+#
+#[Music]
 #build-mode = "both"
 #arch = "all"
-#version = "1.1.2"
+#uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+#apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
 #
-## your local APK
-#stock = "local-apks/anilab.apk"
-#
-## these MUST NOT be empty, builder will crash if empty
-## so we give harmless dummy pages — they will not be used
-#apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
+#[YouTube]
+#build-mode = "both"
+#arch = "all"
 #uptodown-dlurl = "https://youtube.en.uptodown.com/android"
-#archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+#apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 #
-## real package name inside the APK
-#app-name = "com.anilab.android"
+#[Instagram]
+#enabled = true
+#build-mode = "both"
+#version = "latest"
+#arch = "arm64-v8a"
+#uptodown-dlurl = "https://instagram.en.uptodown.com/android"
+#apkmirror-dlurl = ""
+#included-patches = "'Hide ads' 'Hide suggested content' 'Sanitize sharing links' 'Disable signature check'"
+#exclusive-patches = true
+#
+#[Crunchyroll]
+#enabled = true
+#build-mode = "both"
+#version = "latest"
+#arch = "all"
+#uptodown-dlurl = "https://crunchyroll.en.uptodown.com/android"
+#apkmirror-dlurl = ""
+
+[Anilab]
+build-mode = "apk"
+patches-source = "ReVanced/revanced-patches"
+patches-version = "latest"
+cli-source = "j-hc/revanced-cli"
+cli-version = "latest"
+archive-dlurl = "https://archive.org/download/anilab-android/anilab-android.apk?format=original"
