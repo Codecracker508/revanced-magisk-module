@@ -24,4 +24,4 @@ jobs:
           access-key: ${{ secrets.IA_ACCESS_KEY }}
           secret-key: ${{ secrets.IA_SECRET_KEY }}
           identifier: ${{ steps.pkg.outputs.pkg_name }}
-          files: apks/*.apk
+          files: local-apks/*.apk
